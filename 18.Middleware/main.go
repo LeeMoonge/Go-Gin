@@ -30,7 +30,7 @@ func main() {
 	r.Use(gin.Recovery())
 
 	// 可以为每个路由添加任意数量的中间件
-	//r.GET("/benchmark", MyBenchLogger(), benchEndpoint) TODO
+	//r.GET("/benchmark", MyBenchLogger(), benchEndpoint) // TODO
 
 	// 认证路由组
 	// authorized := r.Group("/", AuthRequired())
@@ -38,7 +38,7 @@ func main() {
 	authorized := r.Group("/")
 	// 路由组中间件! 在此例中，我们在 "authorized" 路由组中使用自定义创建的
 	// AuthRequired() 中间件
-	//authorized.Use(AuthRequired()) TODO
+	//authorized.Use(AuthRequired()) // TODO
 	{
 		authorized.POST("/login", loginEndpoint)
 		authorized.POST("/submit", submitEndpoint)
